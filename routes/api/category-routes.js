@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Category, Product } = require('../../models');
 
-// The `/api/categories` endpoint
+
 
 router.get('/', async (req, res) => {
   try {
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   }
 }
 
-  // be sure to include its associated Products
+  
 );
 
 router.get('/:id', async (req, res) => {
@@ -34,8 +34,7 @@ router.get('/:id', async (req, res) => {
 
   }
 });
-// find one category by its `id` value
-// be sure to include its associated Products
+
 
 
 router.post('/', async (req, res) => {
@@ -58,17 +57,18 @@ router.put('/:id', async (req, res) => {
       if(!catdata) {
         res.status(500).json({message: "no category found!"})
       }
-      res.status(200).json(catdata)
+      res.status(200).json({message:`Category #${req.params.id} was updated to ${req.body.category_name}`})
 
     
     } catch(err){
     res.status(400).json(err)
   }
-  // update a category by its `id` value
+  
 });
 
 router.delete('/:id', async(req, res) => {
   try{
+    const catname = req.params.category_name
     const catdata = await Category.destroy({
       where:{
         id:req.params.id,
@@ -78,12 +78,12 @@ router.delete('/:id', async(req, res) => {
       res.status(404).json({message:`No category found with an id of ${req.params.id}`})
     }
     console.log(catdata)
-    res.status(200).json({message: `The category of ${req.params.category_name} has been deleted`})
+    res.status(200).json({message: `The category of ${catname} has been deleted`})
 
     } catch(err){
     res.status(500).json(err)
   }
-  // delete a category by its `id` value
+ 
 });
 
 module.exports = router;
