@@ -9,7 +9,8 @@ AS A USER I want to keep track of my stock of clothing and be able to find items
 
 ## Installation
 This project requires Node v16 and mySQL with listed npm packages installed. To view data on API calls, you should have insomnia or postman installed. 
-
+ <a href= "https://drive.google.com/file/d/1fQz_XXP-KpiU3ea_AQiIf1tIeBykCr2e/view "> Link for video Explanation </a>
+ 
 
 ## Credits
 All code and images @goldengayle
